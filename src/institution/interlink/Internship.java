@@ -2,17 +2,26 @@ package institution.interlink;
 
 import person.Student;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class Internship {
+    private static final String LS = System.lineSeparator();
+    private String name;
+    private Set<Student> students = new LinkedHashSet<>();
+
     public Internship(String name) {
-        //TODO: Implementation is needed
+        this.name = name;
     }
 
     public void setStudent(Student student) {
-        //TODO: Implementation is needed
+        students.add(student);
+
     }
 
     public String getStudents() {
-        //TODO: Implementation is needed
-        return "Andrew Maslenko\nJulia Veselkina\n";
+        StringBuilder sb = new StringBuilder();
+        students.forEach(student -> sb.append(student.getName()).append(LS));
+        return sb.toString();
     }
 }
